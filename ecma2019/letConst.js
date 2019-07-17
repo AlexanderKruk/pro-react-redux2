@@ -15,4 +15,9 @@ const person = {
 }
 
 person.name = 'Bob';
-person = "Alice";
+
+for (let i=0; i<3; i++) {
+  setTimeout(function () {
+    console.log(i)
+  }, i*100);
+}
