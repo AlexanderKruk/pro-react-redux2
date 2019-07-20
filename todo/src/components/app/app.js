@@ -20,8 +20,15 @@ export default class App extends Component {
     ]
   };
 
-  addItem = (text) => {
+  onToggleImportant = (id) =>{
+    console.log('Toggle important', id);
+  };
 
+  onToggleDone = (id) => {
+    console.log('Toogle done', id);
+  };
+
+  addItem = (text) => {
     this.setState(({ todoData }) => {
       const newArray = todoData.slice();
       newArray.push({ label: text, important: false, id: this.maxId++ });
@@ -55,7 +62,9 @@ export default class App extends Component {
       </div>
       <TodoList 
         todos = { todoData }
-        onDeleted = { this.deleteItem } />
+        onDeleted = { this.deleteItem }
+        onToggleImportant = { this.onToggleImportant }
+        onToggleDone = { this.onToggleDone } />
       <ItemAddForm onAddItem = { this.addItem } />
   </div>
   )};
