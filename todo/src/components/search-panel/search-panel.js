@@ -8,7 +8,7 @@ export default class SearchPanel extends Component {
   };
 
   searchItem = (e) => {
-    let searchInput = e.target.value;
+    const searchInput = e.target.value;
     this.setState(() => {
       return { searchInput }
     })

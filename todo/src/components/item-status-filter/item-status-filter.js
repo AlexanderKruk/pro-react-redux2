@@ -1,15 +1,42 @@
 import React, { Component } from 'react';
 
 export default class ItemStatusFilter extends Component {
+
+  state = {
+    filter: 'All'
+  };
+
+  buttons = [
+    { label: 'All' },
+    { label: 'Active' },
+    { label: 'Done' }
+  ]
+
+  onChangeFilter = (e) => {
+    const filter = e.target.textContent;
+
+    this.setState(() => {
+      return { filter }
+    });
+    this.props.onChangeFilter(filter);
+  };
+
   render() {
+
+    const { filter } = this.state;
+
+    const buttons = this.buttons.map((e) => {
+      const isActive = filter === e.label
+      const clazz = isActive ?  "btn btn-info" : "btn btn-outline-secondary";
+      return (
+        <button type="button"
+        className={clazz}>{e.label}</button>
+      )
+    }) 
+
     return (
-      <div className="btn-group">
-        <button type="button"
-                className="btn btn-info">All</button>
-        <button type="button"
-                className="btn btn-outline-secondary">Active</button>
-        <button type="button"
-                className="btn btn-outline-secondary">Done</button>
+      <div className="btn-group" onClick={ this.onChangeFilter }>
+        { buttons }
       </div>
     );
   }
