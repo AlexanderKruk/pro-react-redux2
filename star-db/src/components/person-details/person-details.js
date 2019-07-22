@@ -6,7 +6,8 @@ const PersonDetails = () => {
   return (
     <div className="person-details jumbotron rounded">
     <img className="person-image"
-         src="https://starwars-visualguide.com/assets/img/characters/3.jpg"></img>
+         src="https://starwars-visualguide.com/assets/img/characters/3.jpg"
+         alt="person"></img>
     <div className="card-body">
       <h4>Planet Name</h4>
       <ul className="list-group list-group-flush">
