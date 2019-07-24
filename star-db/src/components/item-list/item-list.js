@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import './item-list.css';
-import SwapiService from '../../services/swapi-service';
 import Spinner from '../spinner';
 
 export default class ItemList extends Component {
@@ -10,11 +9,11 @@ export default class ItemList extends Component {
     itemList: null
   }
 
-  SwapiService = new SwapiService();
-
   componentDidMount() {
-    this.SwapiService
-        .getAllPeople()
+
+    const { getData } = this.props;
+
+    getData()
         .then((itemList) => {
           this.setState({ itemList });
         });
