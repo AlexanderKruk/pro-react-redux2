@@ -16,7 +16,7 @@ export default class SwapiService {
   
   async getAllPeople() {
     const res = await this.getResource(`${this._urlBase}/people`);
-    return res.results.map(this._trasformPerson);
+    return res.results.map(this._trasformPerson).slice(0, 5);
   }
 
   async getPerson(id) {
@@ -65,11 +65,11 @@ export default class SwapiService {
       name: starship.name,
       model: starship.model,
       manufacturer: starship.manufacturer,
-      costInCredits: starship.costInCredits,
+      costInCredits: starship.cost_in_credits,
       length: starship.length,
       crew: starship.crew,
       passangers: starship.passangers,
-      cargoCapacity: starship.cargoCapacity
+      cargoCapacity: starship.cargo_capacity
     }
   }
 
