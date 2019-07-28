@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 
-import './person-details.css';
 import SwapiService from '../../services/swapi-service';
 import Spinner from '../spinner';
 import ErrorButton from '../error-button';
 
-export default class PersonDetails extends Component {
+import './item-details.css';
+
+export default class ItemDetails extends Component {
 
   SwapiService = new SwapiService();
 
   state = {
     selectedItem: null,
-    loading: true
+    loading: true,
+    imageUrl: null
   }
 
   updateItem = () => {
-    const { selectedId } = this.props;
+    const { selectedId, getData, getImageUrl } = this.props;
 
     if(!selectedId) {
       return;
     }
 
-    this.SwapiService
-        .getPerson(selectedId)
+        getData(selectedId)
         .then((selectedItem) => {
-          this.setState({ selectedItem, loading: false })
+          this.setState({ selectedItem,
+                          loading: false,
+                          imageUrl: getImageUrl })
         });
   }
 
@@ -50,10 +53,11 @@ export default class PersonDetails extends Component {
     }
 
     const spinner = loading ? <Spinner /> : null;
-    const content = !loading ? <PersonView selectedItem={this.state.selectedItem}/> : null;
+    const content = !loading ? <ItemView selectedItem={this.state.selectedItem}
+                                         imageUrl={this.state.imageUrl}/> : null;
 
     return (
-      <div className="person-details jumbotron rounded">
+      <div className="item-details jumbotron rounded">
       { spinner }
       { content }
     </div>
@@ -61,12 +65,13 @@ export default class PersonDetails extends Component {
   }
 }
 
-const PersonView = ({ selectedItem: {id, name, gender, birthYear, eyeColor}}) => {
+const ItemView = ({ selectedItem: {id, name, gender, birthYear, eyeColor}, imageUrl}) => {
+  console.log(imageUrl(id));
   return (
     <React.Fragment>
-      <img className="person-image"
-          src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-          alt="person"></img>
+      <img className="item-image"
+          src={ imageUrl(id) }
+          alt="item"></img>
       <div className="card-body">
         <h4>{ name }</h4>
         <ul className="list-group list-group-flush">
