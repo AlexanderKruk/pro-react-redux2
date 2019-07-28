@@ -4,7 +4,6 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ErrorButton from '../error-button';
 import ErrorIndicator from '../error-indicator';
-import PeoplePage from '../people-page';
 import ItemList from '../item-list';
 import PersonDetails from '../person-details';
 
@@ -39,12 +38,11 @@ export default class App extends Component {
         <div className="row mb2 button-row">
           <ErrorButton />
         </div>
-        <PeoplePage />
-
         <div className="row mb2">
           <div className="col-md-6">
             <ItemList onChangeItem = { this.onChangeItem }
-                      getData = {this.SwapiService.getAllPlanets} />
+                      getData = {this.SwapiService.getAllPeople}
+                      renderItem = {({name, gender, birthYear}) => (`${name} (${gender}, ${birthYear})`)} />
           </div>
           <div className="col-md-6">
             <PersonDetails selectedId = { this.state.selectedId }/>
@@ -54,7 +52,19 @@ export default class App extends Component {
         <div className="row mb2">
           <div className="col-md-6">
             <ItemList onChangeItem = { this.onChangeItem }
-                      getData = {this.SwapiService.getAllStarships} />
+                      getData = {this.SwapiService.getAllPlanets}
+                      renderItem = {(item) => (item.name)} />
+          </div>
+          <div className="col-md-6">
+            <PersonDetails selectedId = { this.state.selectedId }/>
+          </div>
+        </div>
+
+        <div className="row mb2">
+          <div className="col-md-6">
+            <ItemList onChangeItem = { this.onChangeItem }
+                      getData = {this.SwapiService.getAllStarships}
+                      renderItem = {(item) => (item.name)} />
           </div>
           <div className="col-md-6">
             <PersonDetails selectedId = { this.state.selectedId }/>
