@@ -6,6 +6,19 @@ import ErrorButton from '../error-button';
 
 import './item-details.css';
 
+const Record = ({item, label, field}) => {
+  return (
+    <li className="list-group-item">
+      <span className="term">{ label }</span>
+      <span>{ field }</span>
+    </li>
+  );
+};
+
+export {
+  Record
+};
+
 export default class ItemDetails extends Component {
 
   SwapiService = new SwapiService();
@@ -54,7 +67,8 @@ export default class ItemDetails extends Component {
 
     const spinner = loading ? <Spinner /> : null;
     const content = !loading ? <ItemView selectedItem={this.state.selectedItem}
-                                         imageUrl={this.state.imageUrl}/> : null;
+                                         imageUrl={this.state.imageUrl}
+                                         listItem={React.Children.map(this.props.children , (child, idx) => <li>{idx}</li>)}/> : null;
 
     return (
       <div className="item-details jumbotron rounded">
@@ -65,7 +79,7 @@ export default class ItemDetails extends Component {
   }
 }
 
-const ItemView = ({ selectedItem: {id, name, gender, birthYear, eyeColor}, imageUrl}) => {
+const ItemView = ({ selectedItem: { id, name, gender, birthYear, eyeColor}, imageUrl, listItem }) => {
   console.log(imageUrl(id));
   return (
     <React.Fragment>
@@ -75,18 +89,7 @@ const ItemView = ({ selectedItem: {id, name, gender, birthYear, eyeColor}, image
       <div className="card-body">
         <h4>{ name }</h4>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">
-            <span className="term">Gender</span>
-            <span>{ gender }</span>
-          </li>
-          <li className="list-group-item">
-            <span className="term">Birth Year</span>
-            <span>{ birthYear }</span>
-          </li>
-          <li className="list-group-item">
-            <span className="term">Eye Color</span>
-            <span>{ eyeColor }</span>
-          </li>
+          { listItem }
         </ul>
         <ErrorButton />
       </div>

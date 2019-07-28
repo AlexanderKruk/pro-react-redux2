@@ -7,6 +7,7 @@ import Header from '../header';
 
 import ErrorIndicator from '../error-indicator';
 import ItemDetails from '../item-details';
+import { Record } from '../item-details/item-details';
 import Row from '../row';
 
 import SwapiService from '../../services/swapi-service';
@@ -24,7 +25,6 @@ export default class App extends Component {
   }
 
   componentDidCatch() {
-    console.log('componentDidCatch()');
     this.setState({ hasError: true });
   }
 
@@ -37,13 +37,17 @@ export default class App extends Component {
     const personDetails = (
       <ItemDetails getData={this.SwapiService.getPerson}
                    selectedId = {5}
-                   getImageUrl = {this.SwapiService.getImagePerson}/>
+                   getImageUrl = {this.SwapiService.getImagePerson}>
+        <Record field="gender" label="Gender"/>
+        <Record field="eyeColor" label="Eye Color"/>
+      </ItemDetails>
     );
 
     const starshipDetails = (
       <ItemDetails getData={this.SwapiService.getStarship}
                    selectedId = {11}
-                   getImageUrl = {this.SwapiService.getImageStarship} />
+                   getImageUrl = {this.SwapiService.getImageStarship}>
+      </ItemDetails>
     );
 
     return(
