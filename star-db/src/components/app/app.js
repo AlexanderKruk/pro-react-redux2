@@ -45,8 +45,10 @@ export default class App extends Component {
 
     const starshipDetails = (
       <ItemDetails getData={this.SwapiService.getStarship}
-                   selectedId = {11}
+                   selectedId = {10}
                    getImageUrl = {this.SwapiService.getImageStarship}>
+        <Record field="length" label="Length"/>
+        <Record field="costInCredits" label="Cost"/>
       </ItemDetails>
     );
 

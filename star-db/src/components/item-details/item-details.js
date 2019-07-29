@@ -6,11 +6,11 @@ import ErrorButton from '../error-button';
 
 import './item-details.css';
 
-const Record = ({item, label, field}) => {
+const Record = ({selectedItem, label, field}) => {
   return (
     <li className="list-group-item">
       <span className="term">{ label }</span>
-      <span>{ field }</span>
+      <span>{ selectedItem[field] }</span>
     </li>
   );
 };
@@ -68,7 +68,7 @@ export default class ItemDetails extends Component {
     const spinner = loading ? <Spinner /> : null;
     const content = !loading ? <ItemView selectedItem={this.state.selectedItem}
                                          imageUrl={this.state.imageUrl}
-                                         listItem={React.Children.map(this.props.children , (child, idx) => <li>{idx}</li>)}/> : null;
+                                         listItem={React.Children.map(this.props.children , (child) => React.cloneElement(child, { selectedItem }))}/> : null;
 
     return (
       <div className="item-details jumbotron rounded">
@@ -79,7 +79,7 @@ export default class ItemDetails extends Component {
   }
 }
 
-const ItemView = ({ selectedItem: { id, name, gender, birthYear, eyeColor}, imageUrl, listItem }) => {
+const ItemView = ({ selectedItem: { id, name }, imageUrl, listItem }) => {
   console.log(imageUrl(id));
   return (
     <React.Fragment>
