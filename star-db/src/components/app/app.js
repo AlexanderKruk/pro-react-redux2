@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 
 import Header from '../header';
-import RandomPlanet from '../random-planet';
-import ErrorButton from '../error-button';
-import PeoplePage from '../people-page';
+import { PersonList,
+         PlanetList, 
+         StarshipList,
+         PersonDetails,
+         PlanetDetails,
+         StarshipDetails } from '../sw-components';
+// import RandomPlanet from '../random-planet';
+// import ErrorButton from '../error-button';
+// import PeoplePage from '../people-page';
+// import ItemList from '../item-list';
 
 import ErrorIndicator from '../error-indicator';
-// import ItemDetails from '../item-details';
-// import { Record } from '../item-details/item-details';
 
 import SwapiService from '../../services/swapi-service';
 
@@ -33,32 +38,25 @@ export default class App extends Component {
       return  <ErrorIndicator />
     }
 
-    // const personDetails = (
-    //   <ItemDetails getData={this.SwapiService.getPerson}
-    //                selectedId = {5}
-    //                getImageUrl = {this.SwapiService.getImagePerson}>
-    //     <Record field="gender" label="Gender"/>
-    //     <Record field="eyeColor" label="Eye Color"/>
-    //   </ItemDetails>
-    // );
-
-    // const starshipDetails = (
-    //   <ItemDetails getData={this.SwapiService.getStarship}
-    //                selectedId = {10}
-    //                getImageUrl = {this.SwapiService.getImageStarship}>
-    //     <Record field="length" label="Length"/>
-    //     <Record field="costInCredits" label="Cost"/>
-    //   </ItemDetails>
-    // );
-
     return(
         <ErrorBoundry>
           <Header />
-          <RandomPlanet />
+          {/* <RandomPlanet />
           <div className="row mb2 button-row">
             <ErrorButton />
-          </div>
-          <PeoplePage />
+          </div> */}
+          <PersonDetails id={7} />
+          <PlanetDetails id={7} />
+          <StarshipDetails id={9} />
+          <PersonList>
+            {(i) => (`${i.name}`)}
+          </PersonList>
+          <PlanetList>
+            {(i) => (`${i.name}`)}
+          </PlanetList>
+          <StarshipList>
+            {(i) => (`${i.name}`)}
+          </StarshipList>
       </ErrorBoundry>
     );
   }
