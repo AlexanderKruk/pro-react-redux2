@@ -48,15 +48,9 @@ export default class App extends Component {
           <PersonDetails id={7} />
           <PlanetDetails id={7} />
           <StarshipDetails id={9} />
-          <PersonList>
-            {(i) => (`${i.name}`)}
-          </PersonList>
-          <PlanetList>
-            {(i) => (`${i.name}`)}
-          </PlanetList>
-          <StarshipList>
-            {(i) => (`${i.name}`)}
-          </StarshipList>
+          <PersonList/>
+          <StarshipList/>
+          <PlanetList/>
       </ErrorBoundry>
     );
   }
