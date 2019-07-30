@@ -1,49 +1,63 @@
 import React from 'react';
 import ItemDetails, { Record } from '../item-details';
 
-import SwapiService from '../../services/swapi-service';
-
-const {
-  getPerson,
-  getPlanet,
-  getStarship,
-  getImagePerson,
-  getImagePlanet,
-  getImageStarship
-} = new SwapiService();
-
+import { SwapiServiceConsumer } from '../swapi-service-context';
 
 const PersonDetails = ({id}) => {
   return (
-    <ItemDetails getData={getPerson}
-                  selectedId = {id}
-                  getImageUrl = {getImagePerson}>
-      <Record field="gender" label="Gender"/>
-      <Record field="eyeColor" label="Eye Color"/>
-    </ItemDetails>
+    <SwapiServiceConsumer>
+    {
+      ({getPerson, getImagePerson}) => {
+        return (
+          <ItemDetails getData={getPerson}
+                       selectedId = {id}
+                       getImageUrl = {getImagePerson}>
+            <Record field="gender" label="Gender"/>
+            <Record field="eyeColor" label="Eye Color"/>
+          </ItemDetails>
+        );
+      }
+    }
+    </SwapiServiceConsumer>
   );
 };
 
 const StarshipDetails = ({id}) => {
   return (
-    <ItemDetails getData={getStarship}
-                 selectedId = {id}
-                 getImageUrl = {getImageStarship}>
-      <Record field="length" label="Length"/>
-      <Record field="costInCredits" label="Cost"/>
-    </ItemDetails>
+    <SwapiServiceConsumer>
+    {
+      ({getStarship, getImageStarship}) => {
+        return (
+          <ItemDetails getData={getStarship}
+                       selectedId = {id}
+                       getImageUrl = {getImageStarship}>
+            <Record field="length" label="Length"/>
+            <Record field="costInCredits" label="Cost"/>
+          </ItemDetails>
+        );
+      }
+    }
+    </SwapiServiceConsumer>
   );
 };
 
 const PlanetDetails = ({id}) => {
   return (
-    <ItemDetails getData={getPlanet}
-                 selectedId = {id}
-                 getImageUrl = {getImagePlanet}>
-      <Record field="population" label="Population"/>
-      <Record field="rotationPeriod" label="Rotation Period"/>
-      <Record field="diameter" label="Diameter"/>
-    </ItemDetails>
+    <SwapiServiceConsumer>
+    {
+      ({getPlanet, getImagePlanet}) => {
+        return (
+          <ItemDetails getData={getPlanet}
+                       selectedId = {id}
+                       getImageUrl = {getImagePlanet}>
+            <Record field="population" label="Population"/>
+            <Record field="rotationPeriod" label="Rotation Period"/>
+            <Record field="diameter" label="Diameter"/>
+          </ItemDetails>
+        );
+      }
+    }
+    </SwapiServiceConsumer>
   );
 };
 

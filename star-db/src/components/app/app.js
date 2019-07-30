@@ -7,17 +7,15 @@ import { PersonList,
          PersonDetails,
          PlanetDetails,
          StarshipDetails } from '../sw-components';
-// import RandomPlanet from '../random-planet';
-// import ErrorButton from '../error-button';
-// import PeoplePage from '../people-page';
-// import ItemList from '../item-list';
 
 import ErrorIndicator from '../error-indicator';
 
 import SwapiService from '../../services/swapi-service';
 
+
 import './app.css';
 import ErrorBoundry from '../error-boundry';
+import { SwapiServiceProvider } from '../swapi-service-context';
 
 export default class App extends Component {
 
@@ -40,17 +38,19 @@ export default class App extends Component {
 
     return(
         <ErrorBoundry>
-          <Header />
-          {/* <RandomPlanet />
-          <div className="row mb2 button-row">
-            <ErrorButton />
-          </div> */}
-          <PersonDetails id={7} />
-          <PlanetDetails id={7} />
-          <StarshipDetails id={9} />
-          <PersonList/>
-          <StarshipList/>
-          <PlanetList/>
+          <SwapiServiceProvider value={this.SwapiService}>
+            <Header />
+            {/* <RandomPlanet />
+            <div className="row mb2 button-row">
+              <ErrorButton />
+            </div> */}
+            <PersonDetails id={10} />
+            <PlanetDetails id={10} />
+            <StarshipDetails id={10} />
+            {/* <PersonList/> */}
+            {/* <StarshipList/>
+            <PlanetList/> */}
+          </SwapiServiceProvider>
       </ErrorBoundry>
     );
   }

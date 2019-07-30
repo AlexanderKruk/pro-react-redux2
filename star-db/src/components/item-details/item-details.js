@@ -80,7 +80,6 @@ export default class ItemDetails extends Component {
 }
 
 const ItemView = ({ selectedItem: { id, name }, imageUrl, listItem }) => {
-  console.log(imageUrl(id));
   return (
     <React.Fragment>
       <img className="item-image"
