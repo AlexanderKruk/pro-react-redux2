@@ -44,12 +44,12 @@ export default class App extends Component {
             <div className="row mb2 button-row">
               <ErrorButton />
             </div> */}
-            <PersonDetails id={10} />
+            {/* <PersonDetails id={10} />
             <PlanetDetails id={10} />
-            <StarshipDetails id={10} />
-            {/* <PersonList/> */}
-            {/* <StarshipList/>
-            <PlanetList/> */}
+            <StarshipDetails id={10} /> */}
+            <PersonList/>
+            <StarshipList/>
+            <PlanetList/>
           </SwapiServiceProvider>
       </ErrorBoundry>
     );

@@ -47,7 +47,7 @@ export default class SwapiService {
     return this._tranformStarship(starship);
   }
 
-  getAllPlanets= async () => {
+  getAllPlanets = async () => {
     const res = await this.getResource(`${this._apiBase}/planets`);
     return res.results.map(this._transformPlanet).slice(0, 5);
   }
