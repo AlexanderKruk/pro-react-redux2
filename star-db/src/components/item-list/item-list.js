@@ -3,7 +3,6 @@ import React from 'react';
 import './item-list.css';
 
 const ItemList = (props) => {
-  console.log(props);
   const { data, onChangeItem, children: renderLabel } = props;
   const items = data.map((item) => {
     const { id } = item;

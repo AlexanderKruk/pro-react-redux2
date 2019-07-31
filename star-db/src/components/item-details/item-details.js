@@ -49,7 +49,9 @@ export default class ItemDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.id !== prevProps.id) {
+    if(this.props.id !== prevProps.id ||
+      this.props.getData !== prevProps.getData ||
+      this.props.getImageUrl !== prevProps.getImageUrl) {
       this.setState({ loading: true });
       this.updateItem();
     }
