@@ -1,4 +1,3 @@
-import React from 'react';
 import ItemList from '../item-list';
 import { withData, withSwapiService, withChildFunction, compose } from '../hoc-helpers';
 
@@ -25,18 +24,15 @@ const mapPlanetMethodsToProps = (swapiService) => {
 
 const PersonList = compose(withSwapiService(mapPersonMethodsToProps),
                            withData,
-                           withChildFunction(renderName))
-                           (ItemList);
+                           withChildFunction(renderName))(ItemList);
 
 const StarshipList = compose(withSwapiService(mapStarshipMethodsToProps),
                              withData,
-                             withChildFunction(renderNameAndLenght))
-                             (ItemList);
+                             withChildFunction(renderNameAndLenght))(ItemList);
 
 const PlanetList = compose(withSwapiService(mapPlanetMethodsToProps),
                            withData,
-                           withChildFunction(renderName))
-                           (ItemList);
+                           withChildFunction(renderName))(ItemList);
 
 export {
   PersonList,
