@@ -1,0 +1,45 @@
+@keyframes lds-blocks {
+  0% {
+    background: #73c968;
+  }
+  12.5% {
+    background: #73c968;
+  }
+  12.625% {
+    background: rgba(66.04838512789819%,64.41664883258929%,64.54394740881907%,0.165);
+  }
+  100% {
+    background: rgba(66.04838512789819%,64.41664883258929%,64.54394740881907%,0.165);
+  }
+}
+@-webkit-keyframes lds-blocks {
+  0% {
+    background: #73c968;
+  }
+  12.5% {
+    background: #73c968;
+  }
+  12.625% {
+    background: rgba(66.04838512789819%,64.41664883258929%,64.54394740881907%,0.165);
+  }
+  100% {
+    background: rgba(66.04838512789819%,64.41664883258929%,64.54394740881907%,0.165);
+  }
+}
+.lds-blocks {
+  position: relative;
+}
+.lds-blocks div {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(66.04838512789819%,64.41664883258929%,64.54394740881907%,0.165);
+  -webkit-animation: lds-blocks 1s linear infinite;
+  animation: lds-blocks 1s linear infinite;
+}
+.lds-blocks {
+  width: 72px !important;
+  height: 72px !important;
+  -webkit-transform: translate(-36px, -36px) scale(0.36) translate(36px, 36px);
+  transform: translate(-36px, -36px) scale(0.36) translate(36px, 36px);
+}
