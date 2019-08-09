@@ -3,12 +3,12 @@ export default class BookstoreService {
     return [
       {
         id: 1,
-        name: 'Production-Ready Microservices',
+        title: 'Production-Ready Microservices',
         author: 'Susan J. Fowler' 
       },
       {
         id: 2,
-        name: 'Release It!',
+        title: 'Release It!',
         author: 'Michael T. Nygard'
       }
     ];
