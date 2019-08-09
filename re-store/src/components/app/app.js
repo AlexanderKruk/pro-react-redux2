@@ -1,14 +1,13 @@
 import React from 'react';
-import ErrorBoundry from '../error-boundry';
 import Spinner from '../spinner';
 import './app.css';
+import withBookstoreService from '../hoc';
 
-const App = () => {
+const App = ({bookstoreService}) => {
+  console.log(bookstoreService.getBooks())
   return (
-    <ErrorBoundry>
       <Spinner />
-    </ErrorBoundry>
   );
 }
 
-export default App;
+export default withBookstoreService()(App);
