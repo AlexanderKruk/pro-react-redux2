@@ -1,7 +1,7 @@
-const booksLoaded = (payload) => {
+const booksLoaded = (newBooks) => {
   return {
     type: 'BOOKS_LOADED',
-    books: payload
+    payload: newBooks
   };
 };
 
