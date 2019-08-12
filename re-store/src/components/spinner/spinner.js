@@ -4,8 +4,8 @@ import './spinner.css';
 
 const Spinner = () => {
   return (
-    <div className="lds-css ng-scope">
-      <div className="lds-blocks" style={{ width: "100%", height: "100%" }}>
+    <div className="lds-css ng-scope spinner">
+      <div className="lds-blocks" style={{ width: "100%", height: "100%", margin:"auto" }}>
         <div style={{ left: '38px', top: '38px', animationDelay: '0s' }}></div>
         <div style={{ left: '80px', top: '38px', animationDelay: '0.125s' }}></div>
         <div style={{ left: '122px', top:'38px', animationDelay: '0.25s' }}></div>
