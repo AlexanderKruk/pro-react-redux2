@@ -1,12 +1,12 @@
 import React, {Fragment} from 'react';
-import BookList from '../book-list';
+import BookListContainer from '../book-list';
 import ShoppingCartTable from '../shopping-cart-table';
 
 export const HomePage = () => {
 
   return (
     <Fragment>
-      <BookList />
+      <BookListContainer />
       <ShoppingCartTable/>
     </Fragment>
   );
