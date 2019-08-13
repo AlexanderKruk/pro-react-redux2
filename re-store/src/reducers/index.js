@@ -1,6 +1,7 @@
 const initialStore = {
   books: [],
-  loading: true
+  loading: true,
+  error: null
 }
 
 const reducer = (store = initialStore, action) => {
@@ -8,12 +9,20 @@ const reducer = (store = initialStore, action) => {
     case 'BOOKS_REQUESTED':
       return {
         books: store.books,
-        loading: true
-      }
+        loading: true,
+        error: null
+      };
     case 'BOOKS_LOADED':
       return { 
         books: action.payload,
-        loading: false };
+        loading: false,
+        error: null };
+    case 'BOOKS_ERROR':
+      return {
+        books: [],
+        loading: false,
+        error: action.payload
+      }
     default: 
       return store;
   }
