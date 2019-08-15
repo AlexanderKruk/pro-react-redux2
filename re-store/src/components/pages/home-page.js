@@ -7,7 +7,7 @@ export const HomePage = () => {
   return (
     <Fragment>
       <BookListContainer />
-      <ShoppingCartTable/>
+      <ShoppingCartTable />
     </Fragment>
   );
 }
