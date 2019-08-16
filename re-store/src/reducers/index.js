@@ -91,11 +91,14 @@ const reducer = (store = initialStore, action) => {
 
     case 'BOOK_ADDED_TO_CART':
       return updateOrder(action.payload, store, 1);
-    case 'BOOK_COUNT_DECREASE_IN_CART':
-      return updateOrder(action.payload, store, -1);
+
     case 'BOOK_DELETE_FROM_CART':
+      return updateOrder(action.payload, store, -1);
+
+    case 'ALL_BOOK_DELETE_FROM_CART':
       const item = store.cartItems.find((book) => book.id === action.payload);
       return updateOrder(action.payload, store, -item.count);
+      
     default: 
       return store;
   }
