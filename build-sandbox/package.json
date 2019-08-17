@@ -16,7 +16,9 @@
     "@babel/plugin-transform-classes": "^7.5.5",
     "@babel/plugin-transform-template-literals": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0"
+    "@babel/preset-react": "^7.0.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6"
   },
   "dependencies": {
     "core-js": "^3.2.1",
