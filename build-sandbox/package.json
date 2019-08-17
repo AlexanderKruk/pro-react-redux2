@@ -4,6 +4,7 @@
   "description": "Sandbox to play with build React tools",
   "main": "index.js",
   "scripts": {
+    "start": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alexander Kruk",
