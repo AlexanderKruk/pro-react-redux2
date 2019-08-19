@@ -37,7 +37,7 @@ const updateCartItem = (book, item = {}, quantity) => {
     id,
     title,
     count: count + quantity,
-    total: total + quantity * book.price
+    total: Number((total + quantity * book.price).toFixed(2))
   };
 };
 
@@ -49,7 +49,7 @@ const updateOrder = (bookId, state, quantity) => {
   const newItem = updateCartItem(book, item, quantity);
 
   return {
-    orderTotal: orderTotal + book.price * quantity,
+    orderTotal: Number((orderTotal + book.price * quantity).toFixed(2)),
     cartItems: updateCartItems(cartItems, newItem, itemIndex),
     countTotal: countTotal + quantity
   }
