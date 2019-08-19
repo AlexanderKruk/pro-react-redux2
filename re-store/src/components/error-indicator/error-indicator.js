@@ -2,7 +2,7 @@ import React from 'react';
 
 const ErrorIndicator = () => {
   return (
-    <h2>Something goes wrong</h2>
+    <h2>Random Error for checking ErrorBoundry. Refresh page.</h2>
   );
 };
 
